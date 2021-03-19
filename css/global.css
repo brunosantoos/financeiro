@@ -1,106 +1,261 @@
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+:root {
+    --white: #fff;
+    --background: #e0e0e0;
+    --gray: #333333;
+    --light: #c4c4c4;
+    --black: #000;
+    --border: #979797; 
+}
+/* HEADER */
+#header-container {
+    width: 100%;
+    background-color: var(--background);
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 95%;
+    height: 80px;
+    margin: auto;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.app-title {
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1.5em;
+    color: var(--gray);
+    padding-left: 10px;
+}
+/* NAV */
+.mobile-menu-container {
+    display: none;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--white);
+}
+nav a, 
+span {
+    padding: 8px;
+    text-decoration: none;
+    color: var(--gray);
+    transition: background-color 0.2s
+}
+nav a:hover {
+    font-weight: bold;
+    background-color: var(--light);
+}
+/* SECTION */
+#content {
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+    width: 95%;
+}
+/* FORM */
+#form-container {
+    display: flex;
+    width: 40%;
+}
+form {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    width: 100%;
+    height: 400px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-top: 30px;
+}
+.transaction-title {
+    text-align: center;
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 1.375em;
+    color: var(--black);
+    position: relative;
+    top: 15px;
+    margin-bottom: 20px;
+}
+.input-containers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+}
+.label-input {
+    color: var(--gray);
+    font-size: 0.875em;
+    line-height: 1.375em;
+    margin-bottom: 5px; 
+}
+#transaction-type, 
+#item-name, 
+#product-price {
+    color: var(--gray);
+    font-size: 0.875em;
+    height: 30px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding-left: 5px;
+}
+select::selection {
+    color: var(--gray);
+}
+#btn-transaction {
+    background: var(--gray);
+    color: var(--white);
+    line-height: 1.375em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    width: 100%;
+    height: 35px;
+    align-self: center;
+    margin-top: 40px;
+    margin-bottom: 2px;
+    transition: background-color 0.4s;
+    cursor: pointer;
+}
+#btn-transaction:hover {
+    background: var(--light);
+    color: var(--gray);
+    font-weight: 700;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.08)
+}
+/* TABLE */
+#table-container {
+    display: flex;
+    width: 70%;
+    justify-content: end;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+table {
+    width: 96%;
+    align-self: flex-end;
+}
+table,
+th,
+td {
+    border-bottom: 1px solid var(--border);
+    border-collapse: collapse;
+}
+.table-title {
+    font-size: 1.125em;
+    line-height: 1.125em;
+    color: var(--black);
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+tr {
+    height: 30px;
+}
+td {
+    padding: 10px 0;
+}
+.th-align-left {
+    text-align: left;
+}
+.element-align-end {
+    text-align: end;
+}
+.tr-last {
+    border-bottom: hidden;
+    border-top: double;
+}
+tr:hover {background-color: var(--background);}
+/* FOOTER */
+footer {
+    height: 3vh;
+    width: 100%;
+    background-color: var(--gray);
+    position: absolute;
+    top: 100%;
+}
+/*** IPAD PORTRAIT ***/
+@media only screen and (max-width: 768px) {
+    header {
+        width: 90%;
+    }
+    .nav-container {
+    display: none;
+    }
+    .mobile-menu-container {
+        display: initial;
+    }
+    .logo-container{
+        width: 97%;
+    }
+    .app-title {
+        text-align: center;
+        width: 100%;
+    }
+    #content {
+        width: 90%;
+        flex-direction: column;
+    }
+    #form-container {
+        width: 100%;
+    }
+    form {
+        flex-flow: row wrap;
+        height: 18vh;
+    }
+    .transaction-title {
+        width: 100%;
+        margin-bottom: 30px;
+        height: fit-content;
+        top: 20px;
+    }
+    .input-containers {
+        height: fit-content;
+        padding: 0;
+    }
+    .tablet-select {
+        width: 20%;
+        margin-left: 0.5vw;
+    }
+    .tablet-item {
+        width: 50%;
+    }
+    .tablet-price {
+        width: 20%;
+        margin-right: 0.5vw;
+        height: 80%;
+    }
+    #table-container {
+        width: 100%;
+    }
+    table {
+        width: 100%;
+    }
+    #btn-transaction {
+        width: 150%;
+        align-self: flex-end;
+        margin-top: 2vh;
+    }
+}
+@media only screen and (max-width: 726px) {
+    
+}
 
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início | Controle Financeiro</title>
-    <link rel="stylesheet" href="global.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./imgs/favicon.png" type="image/png"/>
-</head>
-<body>
-    <div id="header-container">
-        <header>
-            <div class="logo-container">
-                <img src="./imgs/Ellipse 13.png" alt="logo">
-                <h1 class="app-title">Controle financeiro</h1>
-            </div>
-            <div class="mobile-menu-container"><img src="./imgs/list.png" alt="menu-mobile"></div>
-            <nav class="nav-container">
-                <a href="#">Cadastro de transações</a>
-                <span>|</span>
-                <a href="#">Limpar dados</a>
-                <span>|</span>
-                <a href="#">Salvar no servidor</a>
-            </nav>
-            <!--<nav id="nav-mobile">
-                <div>X</div>
-                <div class="nav-container"
-                    <a href="#">Cadastro de transações</a>
-                    <a href="#">Limpar dados</a>
-                    <a href="#">Salvar no servidor</a>
-                </div>
-            </nav>-->
-        </header>
-    </div>
-   <section id="content">
-       <!--FORM-->
-       <div id="form-container">
-            <form method="POST" action="">
-                <p class="transaction-title">Nova transação</p>
-                <div class="input-containers tablet-select">
-                    <label for="transaction-type" class="label-input">Tipo de transação</label>
-                    <select name="transaction-type" id="transaction-type" required>
-                        <option value="">-- Selecione --</option>
-                        <option value="compra">Compra</option>
-                        <option value="venda">Venda</option>
-                    </select>
-                </div>
-                <div class="input-containers tablet-item">
-                    <label for="item-name" class="label-input">Nome da mercadoria</label>
-                    <input id="item-name" type="text" name="product-name" placeholder="Input" required>
-                </div>
-                <div class="input-containers tablet-price">
-                    <label for="product-price" class="label-input">Valor</label>
-                    <input type="number" id="product-price" placeholder="R$ 0,00" required>
-                    <button type="submit" id="btn-transaction">Adicionar transação</button>
-                </div>
-            </form>
-       </div>
-       <!--TABLE-->     
-       <div id="table-container">
-            <table>
-                <p class="table-title">Extrato de transações</p>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th class="th-align-left">Mercadoria</th>
-                        <th class="element-align-end">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>+</td>
-                        <td>Nenhuma transação cadastrada</td>
-                        <td class="element-align-end">R$ 12.999,00</td>
-                        </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>Nenhuma transação cadastrada</td>
-                        <td class="element-align-end">R$ 99,00</td>
-                        </tr>
-                    <tr class="border-double">
-                        <td>+</td>
-                        <td>Nenhuma transação cadastrada</td>
-                        <td class="element-align-end">R$ 9,99</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr class="tr-last">
-                            <td></td>
-                            <td><b>TOTAL</b></td>
-                            <td class="element-align-end" id="final-result"><b>R$12.909,99</b><p id="final-status" class="element-align-end">(LUCRO)</p></td>
-                        </tr>
-                    </tfoot>
-            </table>
-        </div>
-    </section>
 
-    <footer></footer>
 
-    <script src="script.js"></script> 
-</body>
-</html>
+
+
+
+

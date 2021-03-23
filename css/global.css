@@ -289,7 +289,7 @@ footer {
         align-self: flex-end;
     }
 }
-/* SMARTPHONE */
+/* SMARTPHONE*/
 @media only screen and (max-width: 600px) {
     .transaction-title {
         display: none;

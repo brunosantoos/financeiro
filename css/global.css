@@ -11,7 +11,8 @@
     --gray: #333333;
     --light: #c4c4c4;
     --black: #000;
-    --border: #979797; 
+    --border: #979797;
+    --placeholder: #888888; 
 }
 /* HEADER */
 #header-container {
@@ -38,10 +39,10 @@ header {
     color: var(--gray);
     padding-left: 10px;
 }
-/* NAV */
-.mobile-menu-container {
+.menu-mobile {
     display: none;
 }
+/* NAV */
 .nav-container {
     display: flex;
     justify-content: space-around;
@@ -75,7 +76,6 @@ form {
     flex-flow: column wrap;
     justify-content: space-around;
     width: 100%;
-    height: 400px;
     border: 1px solid var(--border);
     border-radius: 4px;
     margin-top: 30px;
@@ -112,8 +112,8 @@ form {
     border-radius: 4px;
     padding-left: 5px;
 }
-select::selection {
-    color: var(--gray);
+select#transaction-type {
+    color: var(--placeholder);
 }
 #btn-transaction {
     background: var(--gray);
@@ -124,8 +124,8 @@ select::selection {
     width: 100%;
     height: 35px;
     align-self: center;
-    margin-top: 40px;
-    margin-bottom: 2px;
+    margin-top: 20px;
+    margin-bottom: 4px;
     transition: background-color 0.4s;
     cursor: pointer;
 }
@@ -180,11 +180,11 @@ td {
 tr:hover {background-color: var(--background);}
 /* FOOTER */
 footer {
-    height: 3vh;
     width: 100%;
     background-color: var(--gray);
-    position: absolute;
-    top: 100%;
+    height: 30px;
+    position: fixed;
+    top: 99%;
 }
 /*** IPAD PORTRAIT ***/
 @media only screen and (max-width: 768px) {
@@ -194,15 +194,57 @@ footer {
     .nav-container {
     display: none;
     }
-    .mobile-menu-container {
-        display: initial;
-    }
     .logo-container{
         width: 97%;
     }
     .app-title {
         text-align: center;
         width: 100%;
+    }
+    .menu-mobile {
+        display: initial;
+        cursor: pointer;
+    }
+    #menu-mobile-wrapper {
+        width: 35%;
+        height: 100%;
+        background-color: var(--gray);
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+    .nav-mobile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 50px;
+    }
+    .nav-mobile a,
+    #btn-close-menu {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    .nav-mobile a {
+        padding: 10px 20px;
+        transition: background-color 0.4s;
+    }
+    a {
+        width: 100%;
+        text-align: right;
+    }
+    .nav-mobile a:hover {
+        background-color: var(--light);
+        color: var(--gray);
+        cursor: pointer;
+    }
+    #btn-close-menu {
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.1em;
+        cursor: pointer;
     }
     #content {
         width: 90%;
@@ -213,7 +255,6 @@ footer {
     }
     form {
         flex-flow: row wrap;
-        height: 18vh;
     }
     .transaction-title {
         width: 100%;
@@ -235,7 +276,7 @@ footer {
     .tablet-price {
         width: 20%;
         margin-right: 0.5vw;
-        height: 80%;
+        margin-bottom: 15px;
     }
     #table-container {
         width: 100%;
@@ -246,16 +287,36 @@ footer {
     #btn-transaction {
         width: 150%;
         align-self: flex-end;
-        margin-top: 2vh;
     }
 }
-@media only screen and (max-width: 726px) {
-    
+/* SMARTPHONE */
+@media only screen and (max-width: 600px) {
+    .transaction-title {
+        display: none;
+    }
+    #menu-mobile-wrapper {
+        width: 75%;
+    }
+    form {
+        flex-flow: column wrap;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 0;
+    }
+    .tablet-select, 
+    .tablet-item, 
+    .tablet-price,
+    #btn-transaction {
+        width: 100%;
+    }
+    .tablet-select {
+        margin: 0;
+    }
+    .input-containers {
+        margin-bottom: 20px;
+    }
+    #table-container {
+        margin-top: 35px;
+    }
 }
-
-
-
-
-
-
-

@@ -1,119 +1,116 @@
-
-<!DOCTYPE html>
-<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Projeto Fianceiro</title>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início | Controle Financeiro</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="https://controle-lfederico.netlify.app/imgs/favicon.png" type="image/png"/>
+    <meta name="description" content="Primeiro Projeto New tab Academy" />
 </head>
+
 <body>
-    <div id="header-container">
-        <header>
-            <div class="logo-container">
-                <img src="https://controle-lfederico.netlify.app/imgs/Ellipse%2013.png" alt="logo">
-                <h1 class="app-title">Controle financeiro</h1>
-            </div>
-            <div class="menu-mobile"><img id="open-burger" src="https://controle-lfederico.netlify.app/imgs/list.png" alt="menu-mobile"></div>
-            <nav class="nav-container">
-                <a href="#">Cadastro de transações</a>
-                <span>|</span>
-                <a href="#">Limpar dados</a>
-                <span>|</span>
-                <a href="#">Salvar no servidor</a>
-            </nav>
-            <div id="menu-mobile-wrapper" style="display: none;">
-                <div id="btn-close-menu">X</div>
-                <div class="nav-mobile">
-                    <a href="#">Cadastro de transações</a>
-                    <a href="#">Limpar dados</a>
-                    <a href="#">Salvar no servidor</a>
+    <div class="content">
+        <!-- header -->
+        <div class="header">
+            <div class="itens-header">
+                <div class="logo">
+                    <a href="#" class="brand"></a>
+                </div>
+                <div class="title-header">
+                        BS Tecnologia
+                </div>
+                <div class="menu">
+                        <nav class="navbar-menu">
+                            <ul class="list-menu">
+                                <a onclick="openMenu()" class="close">X</a>
+                                <li><a href="index.html">Limpar Dados</a></li>
+                                <hr>
+                                <li><a href="#">Cadastro de Transação</a></li>
+                                <hr>
+                                <li><a href="javascrip:void(0)" onclick="salvaServidor(event)">Salvar no Servidor</a></li>
+                            </ul>
+                        </nav>
+                <div class="hamburguer">
+                    <a class="hamb" onclick="openMenu()"></a>
+                </div>
                 </div>
             </div>
-        </header>
-    </div>
-   <section id="content">
-       <!--FORM-->
-       <div id="form-container">
-            <form method="POST" action="">
-                <p class="transaction-title">Nova transação</p>
-                <div class="input-containers tablet-select">
-                    <label for="transaction-type" class="label-input">Tipo de transação</label>
-                    <select name="transaction-type" id="transaction-type" required>
-                        <option value="">-- Selecione --</option>
-                        <option value="compra">Compra</option>
-                        <option value="venda">Venda</option>
-                    </select>
-                </div>
-                <div class="input-containers tablet-item">
-                    <label for="item-name" class="label-input">Nome da mercadoria</label>
-                    <input id="item-name" type="text" name="product-name" placeholder="Input" required>
-                </div>
-                <div class="input-containers tablet-price">
-                    <label for="product-price" class="label-input">Valor</label>
-                    <input type="number" id="product-price" name="product-price" placeholder="R$ 0,00" required>
-                    <button type="submit" id="btn-transaction">Adicionar transação</button>
-                </div>
-            </form>
-       </div>
-       <!--TABLE-->     
-       <div id="table-container">
-            <table>
-                <p class="table-title">Extrato de transações</p>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th class="th-align-left">Mercadoria</th>
-                        <th class="element-align-end">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>+</td>
-                        <td>Nenhuma transação cadastrada</td>
-                        <td class="element-align-end">R$ 12.999,00</td>
-                        </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>Nenhuma transação cadastrada</td>
-                        <td class="element-align-end">R$ 99,00</td>
-                    </tr>
-                    <tr class="border-double">
-                        <td>+</td>
-                        <td>Nenhuma transação cadastrada</td>
-                        <td class="element-align-end">R$ 9,99</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr class="tr-last">
-                        <td></td>
-                        <td><b>TOTAL</b></td>
-                        <td class="element-align-end" id="final-result"><b>R$12.909,99</b><p id="final-status" class="element-align-end">(LUCRO)</p></td>
-                    </tr>
-                </tfoot>
-            </table>
         </div>
-    </section>
-    
-    <footer></footer>
-
-    <script>
-        // TOGGLE MENU
-        var burger = document.getElementById('open-burger');
-        var menu = document.getElementById('menu-mobile-wrapper');
-        var btnX = document.getElementById('btn-close-menu');
-
-        burger.onclick = () => {
-            (menu.style.display === "none") ? menu.style.display = "block" : menu.style.display = "none";
-        }
-
-        btnX.onclick = () => {
-            (menu.style.display === "block") ? menu.style.display = "none" : menu.style.display = "block";
-        }
-    </script>
+        <div class="hero">
+            <!-- New Transaction -->
+            <form id="meuForm" class="form-new-transaction" autocomplete="off">
+                
+                <Span class="title-transaction" >
+                    Nova Transação
+                </Span>
+                
+                <div class="items-transaction" id="items-transaction">
+                    
+                    <div class="type-transaction form-input">
+                        <label>Tipo de Transação</label>
+                        <select onchange="clearErrors()" id="typeTransaction" name="typeTransaction">
+                            <option value="">Selecione</option>
+                            <option value="1">Compra</option>
+                            <option value="2" >Venda</option>
+                        </select>
+                        <em class="hidden"> Selecione uma Transação!!!</em>
+                    </div>
+                    
+                    <div class="name-transaction form-input">
+                        <label>Nome da Mercadoria</label>
+                        <input onfocus="clearErrors()" type="text" placeholder="Escreva um Nome" id="nameTransaction" name="nameTransaction"/>
+                        <em class="hidden"> Preencha o Nome da Mercadoria!!!</em>
+                    </div>
+                    
+                    <div class="value-transaction form-input">
+                        <label>Valor R$</label>
+                        <input onfocus="clearErrors()" onkeypress="applyMask(event)" type="text" placeholder="R$ 0,00"  id="valueTransaction" name="valueTransaction"/>
+                        <em class="hidden"> Preencha o Valor da Mercadoria!!!</em>
+                    </div>
+                    
+                </div>
+                
+                <button type="submit"  class="button-form" id="submit">
+                    Adicionar Transação
+                </button>
+            </form>
+                    
+            
+            <!-- extract -->
+            
+            <div class="extract">
+                <span class="title-extract">
+                    Extrato de Transação
+                </span>
+                    
+                <div class="description-extract">
+                    <div class="sub.title-extract">
+                        Mercadoria
+                    </div>
+                    <div>
+                        Valor
+                    </div>
+                </div>
+                <table class="tbody" id="tbody">
+                    <tr class="line-tbody">
+                        <td class="text-center">Por favor, adicione uma transação!</td>
+                    </tr>
+                </table>
+                <div class="description-extract-total">
+                    <div class="sub.title-extract">
+                        Total
+                    </div>
+                    <div id="totalTransaction" >
+                    </div>
+                </div>
+                <span class="profit" id="profit">
+                    [Lucro]
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
 </body>
 </html>
